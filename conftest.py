@@ -25,15 +25,15 @@ def pytest_sessionfinish(session, exitstatus):
         
         
 
-# def pytest_report_collectionfinish(config, start_path, startdir, items):
-#     with open("stats.txt", 'w') as file:
-#         file.write('Number of tests: ' + str(len(items)))
+def pytest_report_collectionfinish(config, start_path, startdir, items):
+    with open("stats.txt", 'w') as file:
+        file.write('Number of tests: ' + str(len(items)))
 
-# @pytest.hookimpl()
-# def pytest_report_from_serializable(config, data):
-#     with open("stats.txt", 'w') as file:
-#         for i in data.keys():
-#             file.write(i + " ")
+@pytest.hookimpl()
+def pytest_report_from_serializable(config, data):
+    with open("stats.txt", 'w') as file:
+        for i in data.keys():
+            file.write(i + " ")
 
 
 
